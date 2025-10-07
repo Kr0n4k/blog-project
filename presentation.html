@@ -499,17 +499,17 @@ type Mutation {
         </div>
     </div>
 
-    <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">11</span>
-    </div>
+      <div class="slide-counter">
+          <span id="current-slide">1</span> / <span id="total-slides">11</span>
+      </div>
 
-    <div class="navigation">
-        <button class="nav-btn" onclick="previousSlide()">← Назад</button>
-        <button class="nav-btn" onclick="nextSlide()">Вперед →</button>
-        <button class="nav-btn" onclick="toggleFullscreen()">⛶ Полный экран</button>
-    </div>
+      <div class="navigation">
+          <button class="nav-btn" onclick="previousSlide()">← Назад</button>
+          <button class="nav-btn" onclick="nextSlide()">Вперед →</button>
+          <button class="nav-btn" onclick="toggleFullscreen()">⛶ Полный экран</button>
+      </div>
 
-    <script>
+      <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const totalSlides = slides.length;
