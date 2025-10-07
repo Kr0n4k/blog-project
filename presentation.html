@@ -79,41 +79,58 @@
         <!-- Слайд 3: Технологический стек -->
         <div class="slide">
             <h2>🚀 Технологический стек</h2>
-            <div class="tech-stack">
-                <div class="tech-item">
+            <div class="compact-grid">
+                <div class="compact-item">
                     <h4>Backend</h4>
-                    <ul style="text-align: left; list-style: none; font-size: 0.9rem;">
-                        <li>✅ NestJS - Модульный фреймворк</li>
-                        <li>✅ GraphQL - Типизированный API</li>
-                        <li>✅ Prisma - Современная ORM</li>
-                        <li>✅ PostgreSQL - Надежная БД</li>
-                        <li>✅ Redis - Кэширование</li>
-                        <li>✅ Jest - Тестирование</li>
+                    <ul>
+                        <li>NestJS - Модульный фреймворк</li>
+                        <li>GraphQL - Типизированный API</li>
+                        <li>Prisma - Современная ORM</li>
+                        <li>PostgreSQL - Надежная БД</li>
+                        <li>Redis - Кэширование</li>
+                        <li>Jest - Тестирование</li>
                     </ul>
                 </div>
-                <div class="tech-item">
+                <div class="compact-item">
                     <h4>Frontend</h4>
-                    <ul style="text-align: left; list-style: none; font-size: 0.9rem;">
-                        <li>✅ Next.js 15 - React фреймворк</li>
-                        <li>✅ TypeScript - Строгая типизация</li>
-                        <li>✅ Apollo Client - GraphQL клиент</li>
-                        <li>✅ Tailwind CSS - Utility-first CSS</li>
-                        <li>✅ App Router - Современная маршрутизация</li>
-                        <li>✅ React Hook Form - Управление формами</li>
+                    <ul>
+                        <li>Next.js 15 - React фреймворк</li>
+                        <li>TypeScript - Строгая типизация</li>
+                        <li>Apollo Client - GraphQL клиент</li>
+                        <li>Tailwind CSS - Utility-first CSS</li>
+                        <li>App Router - Современная маршрутизация</li>
+                        <li>React Hook Form - Управление формами</li>
+                    </ul>
+                </div>
+                <div class="compact-item">
+                    <h4>DevOps</h4>
+                    <ul>
+                        <li>Docker - Контейнеризация</li>
+                        <li>GitHub Actions - CI/CD</li>
+                        <li>Nginx - Load balancer</li>
+                        <li>Prometheus - Мониторинг</li>
+                        <li>Grafana - Визуализация</li>
+                        <li>ELK Stack - Логирование</li>
                     </ul>
                 </div>
             </div>
-            <div class="info-card">
-                <h4>💡 Обоснование выбора технологий</h4>
-                <p>Все технологии выбраны с учетом производительности, масштабируемости, типизации и современности. Полная совместимость и экосистема.</p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>💡 Обоснование выбора</h4>
+                    <p>Все технологии выбраны с учетом производительности, масштабируемости, типизации и современности.</p>
+                </div>
+                <div class="info-card">
+                    <h4>🔄 Экосистема</h4>
+                    <p>Полная совместимость между компонентами, единая экосистема TypeScript.</p>
+                </div>
             </div>
         </div>
 
         <!-- Слайд 4: Основные функции -->
         <div class="slide">
             <h2>🔧 Основные функции</h2>
-            <div class="features">
-                <div class="feature-item">
+            <div class="compact-grid">
+                <div class="compact-item">
                     <h4>👤 Пользователи</h4>
                     <ul>
                         <li>JWT аутентификация + сессии</li>
@@ -121,9 +138,10 @@
                         <li>Система сессий с Redis</li>
                         <li>Поиск пользователей</li>
                         <li>Аватары и биография</li>
+                        <li>Роли и права доступа</li>
                     </ul>
                 </div>
-                <div class="feature-item">
+                <div class="compact-item">
                     <h4>📝 Посты</h4>
                     <ul>
                         <li>Rich text редактор</li>
@@ -131,9 +149,10 @@
                         <li>Система лайков</li>
                         <li>Вложенные комментарии</li>
                         <li>Полнотекстовый поиск</li>
+                        <li>Теги и категории</li>
                     </ul>
                 </div>
-                <div class="feature-item">
+                <div class="compact-item">
                     <h4>🔒 Безопасность</h4>
                     <ul>
                         <li>Argon2id хеширование</li>
@@ -141,21 +160,37 @@
                         <li>Валидация данных</li>
                         <li>CORS настройки</li>
                         <li>Rate limiting</li>
+                        <li>Input sanitization</li>
+                    </ul>
+                </div>
+                <div class="compact-item">
+                    <h4>📊 Аналитика</h4>
+                    <ul>
+                        <li>Метрики производительности</li>
+                        <li>Пользовательская аналитика</li>
+                        <li>Отчеты по контенту</li>
+                        <li>Система уведомлений</li>
+                        <li>Экспорт данных</li>
+                        <li>Dashboard администратора</li>
                     </ul>
                 </div>
             </div>
             <div class="stats">
                 <div class="stat-item">
-                    <div class="stat-number">15+</div>
+                    <div class="stat-number">20+</div>
                     <div class="stat-label">Модулей</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">50+</div>
+                    <div class="stat-number">80+</div>
                     <div class="stat-label">API Endpoints</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">100%</div>
                     <div class="stat-label">TypeScript</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Test Coverage</div>
                 </div>
             </div>
         </div>
@@ -208,20 +243,20 @@ type Mutation {
                     <div class="stat-label">Uptime</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">&lt;200ms</div>
+                    <div class="stat-number">&lt;150ms</div>
                     <div class="stat-label">Response Time</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">1000+</div>
+                    <div class="stat-number">2000+</div>
                     <div class="stat-label">Concurrent Users</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">95%</div>
+                    <div class="stat-number">98%</div>
                     <div class="stat-label">Cache Hit Rate</div>
                 </div>
             </div>
-            <div class="features">
-                <div class="feature-item">
+            <div class="compact-grid">
+                <div class="compact-item">
                     <h4>Backend оптимизации</h4>
                     <ul>
                         <li>Database indexing</li>
@@ -229,9 +264,10 @@ type Mutation {
                         <li>Connection pooling</li>
                         <li>Query optimization</li>
                         <li>Compression (Gzip)</li>
+                        <li>Load balancing</li>
                     </ul>
                 </div>
-                <div class="feature-item">
+                <div class="compact-item">
                     <h4>Frontend оптимизации</h4>
                     <ul>
                         <li>Code splitting</li>
@@ -239,6 +275,18 @@ type Mutation {
                         <li>Apollo caching</li>
                         <li>SSR/SSG</li>
                         <li>CDN integration</li>
+                        <li>Lazy loading</li>
+                    </ul>
+                </div>
+                <div class="compact-item">
+                    <h4>Инфраструктура</h4>
+                    <ul>
+                        <li>Auto-scaling</li>
+                        <li>Health checks</li>
+                        <li>Circuit breakers</li>
+                        <li>Retry mechanisms</li>
+                        <li>Monitoring</li>
+                        <li>Alerting</li>
                     </ul>
                 </div>
             </div>
@@ -286,8 +334,8 @@ type Mutation {
         <!-- Слайд 8: Мониторинг и безопасность -->
         <div class="slide">
             <h2>📊 Мониторинг и безопасность</h2>
-            <div class="features">
-                <div class="feature-item">
+            <div class="compact-grid">
+                <div class="compact-item">
                     <h4>🔍 Мониторинг</h4>
                     <ul>
                         <li>Структурированное логирование</li>
@@ -295,9 +343,10 @@ type Mutation {
                         <li>Performance metrics</li>
                         <li>Error tracking</li>
                         <li>Request tracing</li>
+                        <li>Real-time dashboards</li>
                     </ul>
                 </div>
-                <div class="feature-item">
+                <div class="compact-item">
                     <h4>🛡️ Безопасность</h4>
                     <ul>
                         <li>HTTPS everywhere</li>
@@ -305,9 +354,10 @@ type Mutation {
                         <li>JWT tokens</li>
                         <li>Input validation</li>
                         <li>SQL injection protection</li>
+                        <li>XSS protection</li>
                     </ul>
                 </div>
-                <div class="feature-item">
+                <div class="compact-item">
                     <h4>🚨 Алерты</h4>
                     <ul>
                         <li>High error rate (>5%)</li>
@@ -315,6 +365,18 @@ type Mutation {
                         <li>Database issues</li>
                         <li>Memory usage (>80%)</li>
                         <li>Disk space (<10%)</li>
+                        <li>Security breaches</li>
+                    </ul>
+                </div>
+                <div class="compact-item">
+                    <h4>📈 Аналитика</h4>
+                    <ul>
+                        <li>User behavior tracking</li>
+                        <li>Performance analytics</li>
+                        <li>Business metrics</li>
+                        <li>Cost optimization</li>
+                        <li>Capacity planning</li>
+                        <li>Trend analysis</li>
                     </ul>
                 </div>
             </div>
