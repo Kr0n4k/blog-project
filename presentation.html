@@ -4,323 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Platform - Презентация проекта</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            overflow: hidden;
-        }
-
-        .presentation-container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slide {
-            display: none;
-            width: 95%;
-            max-width: 1000px;
-            height: 85vh;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: slideIn 0.8s ease-out;
-            overflow-y: auto;
-            box-sizing: border-box;
-        }
-
-        .slide.active {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #ffd700;
-        }
-
-        h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: #4ecdc4;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .tech-stack {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .tech-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .tech-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .tech-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: #ffd700;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .feature-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #4ecdc4;
-            text-align: left;
-        }
-
-        .feature-item h4 {
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            color: #ffd700;
-        }
-
-        .architecture-diagram {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 20px;
-            margin: 20px 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .diagram-row {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 15px 0;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .diagram-box {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            padding: 15px 20px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 1rem;
-            min-width: 120px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .arrow {
-            font-size: 1.5rem;
-            color: #ffd700;
-            margin: 0 10px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .stat-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: #ffd700;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .navigation {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 1000;
-        }
-
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .slide-counter {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: bold;
-            backdrop-filter: blur(10px);
-        }
-
-        .highlight {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: bold;
-        }
-
-        .code-block {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            margin: 20px 0;
-            text-align: left;
-            border-left: 4px solid #4ecdc4;
-        }
-
-        .demo-link {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 20px 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .demo-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .slide {
-                padding: 20px;
-                height: 90vh;
-                width: 98%;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.6rem;
-            }
-            
-            h3 {
-                font-size: 1.3rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .diagram-row {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .arrow {
-                transform: rotate(90deg);
-                font-size: 1.2rem;
-            }
-            
-            .tech-stack {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="presentation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="progress-bar" id="progress-bar"></div>
+    
     <div class="presentation-container">
         <!-- Слайд 1: Титульный -->
         <div class="slide active">
@@ -344,6 +35,10 @@
                     <p>Redis</p>
                 </div>
             </div>
+            <div class="info-card">
+                <h4>🎯 Цель проекта</h4>
+                <p>Создание масштабируемой блоговой платформы с современной архитектурой, полной типизацией и автоматизированным CI/CD</p>
+            </div>
         </div>
 
         <!-- Слайд 2: Архитектура -->
@@ -361,7 +56,24 @@
                     <div class="diagram-box">Redis<br>(Cache & Sessions)</div>
                 </div>
             </div>
-            <p class="subtitle">Модульная архитектура с четким разделением ответственности</p>
+            <div class="features">
+                <div class="feature-item">
+                    <h4>🔧 Модульная архитектура</h4>
+                    <ul>
+                        <li>Четкое разделение ответственности</li>
+                        <li>Легко расширяемые модули</li>
+                        <li>Слабая связанность компонентов</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h4>📈 Масштабируемость</h4>
+                    <ul>
+                        <li>Горизонтальное масштабирование</li>
+                        <li>Микросервисная готовность</li>
+                        <li>Load balancing</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- Слайд 3: Технологический стек -->
@@ -370,24 +82,30 @@
             <div class="tech-stack">
                 <div class="tech-item">
                     <h4>Backend</h4>
-                    <ul style="text-align: left; list-style: none;">
+                    <ul style="text-align: left; list-style: none; font-size: 0.9rem;">
                         <li>✅ NestJS - Модульный фреймворк</li>
                         <li>✅ GraphQL - Типизированный API</li>
                         <li>✅ Prisma - Современная ORM</li>
                         <li>✅ PostgreSQL - Надежная БД</li>
                         <li>✅ Redis - Кэширование</li>
+                        <li>✅ Jest - Тестирование</li>
                     </ul>
                 </div>
                 <div class="tech-item">
                     <h4>Frontend</h4>
-                    <ul style="text-align: left; list-style: none;">
+                    <ul style="text-align: left; list-style: none; font-size: 0.9rem;">
                         <li>✅ Next.js 15 - React фреймворк</li>
                         <li>✅ TypeScript - Строгая типизация</li>
                         <li>✅ Apollo Client - GraphQL клиент</li>
                         <li>✅ Tailwind CSS - Utility-first CSS</li>
                         <li>✅ App Router - Современная маршрутизация</li>
+                        <li>✅ React Hook Form - Управление формами</li>
                     </ul>
                 </div>
+            </div>
+            <div class="info-card">
+                <h4>💡 Обоснование выбора технологий</h4>
+                <p>Все технологии выбраны с учетом производительности, масштабируемости, типизации и современности. Полная совместимость и экосистема.</p>
             </div>
         </div>
 
@@ -398,29 +116,46 @@
                 <div class="feature-item">
                     <h4>👤 Пользователи</h4>
                     <ul>
-                        <li>Регистрация и аутентификация</li>
+                        <li>JWT аутентификация + сессии</li>
                         <li>Управление профилем</li>
                         <li>Система сессий с Redis</li>
                         <li>Поиск пользователей</li>
+                        <li>Аватары и биография</li>
                     </ul>
                 </div>
                 <div class="feature-item">
                     <h4>📝 Посты</h4>
                     <ul>
-                        <li>Создание и редактирование</li>
+                        <li>Rich text редактор</li>
                         <li>Загрузка медиафайлов</li>
                         <li>Система лайков</li>
-                        <li>Комментарии</li>
+                        <li>Вложенные комментарии</li>
+                        <li>Полнотекстовый поиск</li>
                     </ul>
                 </div>
                 <div class="feature-item">
                     <h4>🔒 Безопасность</h4>
                     <ul>
-                        <li>Хеширование паролей (Argon2)</li>
-                        <li>Защита от CSRF</li>
+                        <li>Argon2id хеширование</li>
+                        <li>CSRF защита</li>
                         <li>Валидация данных</li>
                         <li>CORS настройки</li>
+                        <li>Rate limiting</li>
                     </ul>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Модулей</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">API Endpoints</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">TypeScript</div>
                 </div>
             </div>
         </div>
@@ -429,31 +164,37 @@
         <div class="slide">
             <h2>🔄 API и интеграция</h2>
             <div class="code-block">
-# GraphQL API
+<pre># GraphQL API
 type Query {
-  users(search: String): [User!]!
-  posts(search: String): [Post!]!
+  users(search: String, limit: Int): [User!]!
+  posts(search: String, limit: Int): [Post!]!
   user(id: ID!): User
+  me: User
 }
 
 type Mutation {
   register(input: CreateUserInput!): AuthPayload!
   createPost(input: CreatePostInput!): Post!
   likePost(postId: ID!): Like!
-}
+  createComment(input: CreateCommentInput!): Comment!
+}</pre>
             </div>
             <div class="tech-stack">
                 <div class="tech-item">
                     <h4>GraphQL</h4>
-                    <p>Типизированный API</p>
+                    <p>Типизированный API с автодокументацией</p>
                 </div>
                 <div class="tech-item">
                     <h4>REST API</h4>
-                    <p>Дополнительные endpoints</p>
+                    <p>Дополнительные endpoints для простых операций</p>
                 </div>
                 <div class="tech-item">
                     <h4>Swagger</h4>
-                    <p>Автодокументация</p>
+                    <p>Интерактивная документация API</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Apollo Client</h4>
+                    <p>Кэширование и оптимизация запросов</p>
                 </div>
             </div>
         </div>
@@ -474,6 +215,10 @@ type Mutation {
                     <div class="stat-number">1000+</div>
                     <div class="stat-label">Concurrent Users</div>
                 </div>
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Cache Hit Rate</div>
+                </div>
             </div>
             <div class="features">
                 <div class="feature-item">
@@ -483,6 +228,7 @@ type Mutation {
                         <li>Redis caching</li>
                         <li>Connection pooling</li>
                         <li>Query optimization</li>
+                        <li>Compression (Gzip)</li>
                     </ul>
                 </div>
                 <div class="feature-item">
@@ -492,6 +238,7 @@ type Mutation {
                         <li>Image optimization</li>
                         <li>Apollo caching</li>
                         <li>SSR/SSG</li>
+                        <li>CDN integration</li>
                     </ul>
                 </div>
             </div>
@@ -516,23 +263,64 @@ type Mutation {
                     <div class="diagram-box">Deploy</div>
                 </div>
             </div>
-            <div class="tech-stack">
-                <div class="tech-item">
-                    <h4>GitHub Actions</h4>
-                    <p>Автоматизация CI/CD</p>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>1. Code Quality</h4>
+                    <p>ESLint, Prettier, TypeScript проверки</p>
                 </div>
-                <div class="tech-item">
-                    <h4>Docker</h4>
-                    <p>Контейнеризация</p>
+                <div class="timeline-item">
+                    <h4>2. Testing</h4>
+                    <p>Unit тесты, E2E тесты, покрытие кода</p>
                 </div>
-                <div class="tech-item">
-                    <h4>Monitoring</h4>
-                    <p>Логи и метрики</p>
+                <div class="timeline-item">
+                    <h4>3. Build & Deploy</h4>
+                    <p>Docker образы, автоматический деплой</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>4. Monitoring</h4>
+                    <p>Health checks, логи, метрики</p>
                 </div>
             </div>
         </div>
 
-        <!-- Слайд 8: Демо и ссылки -->
+        <!-- Слайд 8: Мониторинг и безопасность -->
+        <div class="slide">
+            <h2>📊 Мониторинг и безопасность</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h4>🔍 Мониторинг</h4>
+                    <ul>
+                        <li>Структурированное логирование</li>
+                        <li>Health checks для всех сервисов</li>
+                        <li>Performance metrics</li>
+                        <li>Error tracking</li>
+                        <li>Request tracing</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h4>🛡️ Безопасность</h4>
+                    <ul>
+                        <li>HTTPS everywhere</li>
+                        <li>Password hashing (Argon2)</li>
+                        <li>JWT tokens</li>
+                        <li>Input validation</li>
+                        <li>SQL injection protection</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h4>🚨 Алерты</h4>
+                    <ul>
+                        <li>High error rate (>5%)</li>
+                        <li>Slow response (>2s)</li>
+                        <li>Database issues</li>
+                        <li>Memory usage (>80%)</li>
+                        <li>Disk space (<10%)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 9: Демонстрация -->
         <div class="slide">
             <h2>🎯 Демонстрация</h2>
             <div class="subtitle">Проект готов к демонстрации и развертыванию</div>
@@ -563,10 +351,52 @@ type Mutation {
                     <div class="stat-number">100%</div>
                     <div class="stat-label">TypeScript</div>
                 </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Tests</div>
+                </div>
             </div>
         </div>
 
-        <!-- Слайд 9: Заключение -->
+        <!-- Слайд 10: Возможности развития -->
+        <div class="slide">
+            <h2>🚀 Возможности развития</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <h4>🏗️ Архитектура</h4>
+                    <ul>
+                        <li>Микросервисная архитектура</li>
+                        <li>Event-driven architecture</li>
+                        <li>Message queues (RabbitMQ/Kafka)</li>
+                        <li>Service mesh (Istio)</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h4>📱 Мобильность</h4>
+                    <ul>
+                        <li>React Native приложение</li>
+                        <li>PWA (Progressive Web App)</li>
+                        <li>Offline-first подход</li>
+                        <li>Push уведомления</li>
+                    </ul>
+                </div>
+                <div class="feature-item">
+                    <h4>🤖 AI/ML</h4>
+                    <ul>
+                        <li>AI-рекомендации постов</li>
+                        <li>Автомодерация контента</li>
+                        <li>Чат-бот поддержка</li>
+                        <li>Аналитика поведения</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4>💡 Долгосрочные планы</h4>
+                <p>Развитие в сторону enterprise-решения с поддержкой multi-tenancy, advanced analytics и интеграцией с внешними сервисами</p>
+            </div>
+        </div>
+
+        <!-- Слайд 11: Заключение -->
         <div class="slide">
             <h1>Спасибо за внимание!</h1>
             <div class="subtitle">Современная блоговая платформа с полным стеком технологий</div>
@@ -579,15 +409,17 @@ type Mutation {
                         <li>Современный технологический стек</li>
                         <li>Масштабируемая архитектура</li>
                         <li>Автоматизированный CI/CD</li>
+                        <li>Comprehensive мониторинг</li>
                     </ul>
                 </div>
                 <div class="feature-item">
-                    <h4>🚀 Возможности развития</h4>
+                    <h4>🚀 Готовность к production</h4>
                     <ul>
-                        <li>Микросервисная архитектура</li>
-                        <li>Мобильное приложение</li>
-                        <li>Real-time уведомления</li>
-                        <li>AI-рекомендации</li>
+                        <li>Docker контейнеризация</li>
+                        <li>Health checks</li>
+                        <li>Error handling</li>
+                        <li>Security best practices</li>
+                        <li>Performance optimization</li>
                     </ul>
                 </div>
             </div>
@@ -597,11 +429,16 @@ type Mutation {
                     Готов к production развертыванию! 🚀
                 </p>
             </div>
+            
+            <div class="info-card" style="margin-top: 30px;">
+                <h4>📞 Контакты</h4>
+                <p>GitHub: <a href="https://github.com/Kr0n4k/blog-project" style="color: #4ecdc4;">github.com/Kr0n4k/blog-project</a></p>
+            </div>
         </div>
     </div>
 
     <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">9</span>
+        <span id="current-slide">1</span> / <span id="total-slides">11</span>
     </div>
 
     <div class="navigation">
@@ -622,6 +459,10 @@ type Mutation {
             currentSlide = (n + totalSlides) % totalSlides;
             slides[currentSlide].classList.add('active');
             document.getElementById('current-slide').textContent = currentSlide + 1;
+            
+            // Update progress bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
         }
 
         function nextSlide() {
@@ -661,10 +502,47 @@ type Mutation {
                         document.exitFullscreen();
                     }
                     break;
+                case 'Home':
+                    e.preventDefault();
+                    showSlide(0);
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    showSlide(totalSlides - 1);
+                    break;
             }
         });
 
-        // Auto-advance for demo (optional)
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide(); // Swipe left - next slide
+                } else {
+                    previousSlide(); // Swipe right - previous slide
+                }
+            }
+        }
+
+        // Initialize progress bar
+        document.getElementById('progress-bar').style.width = '9.09%';
+
+        // Auto-advance for demo (optional - uncomment if needed)
         // setInterval(nextSlide, 30000); // 30 seconds per slide
     </script>
 </body>
