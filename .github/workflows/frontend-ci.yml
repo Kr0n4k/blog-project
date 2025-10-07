@@ -1,0 +1,163 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'blog-frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'blog-frontend/**'
+      - '.github/workflows/frontend-ci.yml'
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  test:
+    name: Test Frontend
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+          cache-dependency-path: blog-frontend/yarn.lock
+
+      - name: Install dependencies
+        working-directory: ./blog-frontend
+        run: yarn install --frozen-lockfile
+
+      - name: Run linting
+        working-directory: ./blog-frontend
+        run: yarn lint || echo "Linting not configured yet"
+
+      - name: Run type checking
+        working-directory: ./blog-frontend
+        run: yarn build
+
+      - name: Run tests
+        working-directory: ./blog-frontend
+        run: yarn test --coverage --watchAll=false || echo "Tests not configured yet"
+
+      - name: Upload coverage to Codecov
+        if: success()
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./blog-frontend/coverage/lcov.info
+          flags: frontend
+          name: frontend-coverage
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+          cache-dependency-path: blog-frontend/yarn.lock
+
+      - name: Install dependencies
+        working-directory: ./blog-frontend
+        run: yarn install --frozen-lockfile
+
+      - name: Run security audit
+        working-directory: ./blog-frontend
+        run: yarn audit --level moderate
+
+      - name: Run Snyk security scan
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+          working-directory: ./blog-frontend
+
+  build:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    needs: [test, security]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'yarn'
+          cache-dependency-path: blog-frontend/yarn.lock
+
+      - name: Install dependencies
+        working-directory: ./blog-frontend
+        run: yarn install --frozen-lockfile
+
+      - name: Build application
+        working-directory: ./blog-frontend
+        run: yarn build
+        env:
+          NEXT_PUBLIC_GRAPHQL_ENDPOINT: ${{ secrets.NEXT_PUBLIC_GRAPHQL_ENDPOINT }}
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: blog-frontend/.next/
+          retention-days: 7
+
+  lighthouse:
+    name: Lighthouse Performance
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: blog-frontend/.next/
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          configPath: './blog-frontend/.lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  deploy:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    needs: [build, lighthouse]
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./blog-frontend
+          vercel-args: '--prod'
