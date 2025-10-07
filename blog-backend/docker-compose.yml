@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: blog_postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+      POSTGRES_HOST_AUTH_METHOD: md5
+      TZ: ${TZ:-Europe/Moscow}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - blog-backend
+  redis:
+    container_name: blog_redis
+    image: redis:7.2-alpine
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: redis-server --requirepass ${REDIS_PASSWORD} --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - blog-backend
+
+volumes:
+  postgres_data:
+    name: blog_postgres_data
+  redis_data:
+    name: blog_redis_data
+
+networks:
+  blog-backend:
+    driver: bridge
+    name: blog-backend-network

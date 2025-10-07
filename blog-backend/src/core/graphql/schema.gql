@@ -1,0 +1,117 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthModel {
+  message: String
+  user: UserModel
+}
+
+type CommentModel {
+  createdAt: DateTime!
+  id: String!
+  postId: String!
+  text: String!
+  updatedAt: DateTime!
+  user: UserModel
+  userId: String!
+}
+
+input CreatePostInput {
+  photos: [String!]
+  text: String
+  title: String!
+  videos: [String!]
+}
+
+input CreateUserInput {
+  email: String!
+  firstName: String!
+  lastName: String!
+  password: String!
+  userName: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input FindByNameInput {
+  firstName: String!
+  lastName: String!
+}
+
+type LikeModel {
+  createdAt: DateTime!
+  id: String!
+  postId: String!
+  userId: String!
+}
+
+input LoginInput {
+  login: String!
+  password: String!
+  pin: String
+}
+
+type Mutation {
+  clearSessionCookie: Boolean!
+  createComment(postId: String!, text: String!): CommentModel!
+  createPost(data: CreatePostInput!): PostModel!
+  createUser(data: CreateUserInput!): UserModel!
+  likePost(postId: String!): LikeModel!
+  login(data: LoginInput!): AuthModel!
+  logout: Boolean!
+  removeSession(id: String!): Boolean!
+  updateProfile(avatar: String, bio: String): UserModel!
+}
+
+type PostModel {
+  comments: [CommentModel!]
+  createdAt: DateTime!
+  id: String!
+  likes: [LikeModel!]
+  photos: [String!]!
+  text: String!
+  title: String!
+  updatedAt: DateTime!
+  user: UserModel
+  userId: String!
+  videos: [String!]!
+}
+
+type Query {
+  currentUser: UserModel!
+  findCurrentSession: SessionModel!
+  findProfile: UserModel!
+  findSessionsByUser: [SessionModel!]!
+  findUserByID(id: String!): UserModel!
+  findUserByName(name: FindByNameInput!): UserModel!
+  getAllUsers: [UserModel!]!
+  getMyPosts: [PostModel!]!
+  getRandomPosts: [PostModel!]!
+  getUserById(id: String!): UserModel!
+  getUserPosts(id: String!): [PostModel!]!
+  isAuthenticated: Boolean!
+  searchPosts(limit: Float, offset: Float, query: String!): [PostModel!]!
+  searchUsers(limit: Float, offset: Float, query: String!): [UserModel!]!
+}
+
+type SessionModel {
+  createdAt: String!
+  id: ID!
+  userId: String!
+}
+
+type UserModel {
+  avatar: String
+  bio: String
+  createdAt: DateTime!
+  email: String!
+  firstName: String!
+  id: String!
+  lastName: String!
+  updatedAt: DateTime!
+  userName: String!
+}
