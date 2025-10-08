@@ -53,6 +53,29 @@ export const CREATE_COMMENT_MUTATION = gql`
   }
 `;
 
+export const UPDATE_COMMENT_MUTATION = gql`
+  mutation UpdateComment($commentId: String!, $text: String!) {
+    updateComment(commentId: $commentId, text: $text) {
+      id
+      userId
+      postId
+      text
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+export const DELETE_COMMENT_MUTATION = gql`
+  mutation DeleteComment($commentId: String!) {
+    deleteComment(commentId: $commentId) {
+      id
+      userId
+      postId
+    }
+  }
+`;
+
 export const UPDATE_PROFILE_MUTATION = gql`
   mutation UpdateProfile($bio: String, $avatar: String) {
     updateProfile(bio: $bio, avatar: $avatar) {

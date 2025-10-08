@@ -60,10 +60,12 @@ type Mutation {
   createComment(postId: String!, text: String!): CommentModel!
   createPost(data: CreatePostInput!): PostModel!
   createUser(data: CreateUserInput!): UserModel!
+  deleteComment(commentId: String!): CommentModel!
   likePost(postId: String!): LikeModel!
   login(data: LoginInput!): AuthModel!
   logout: Boolean!
   removeSession(id: String!): Boolean!
+  updateComment(commentId: String!, text: String!): CommentModel!
   updateProfile(avatar: String, bio: String): UserModel!
 }
 

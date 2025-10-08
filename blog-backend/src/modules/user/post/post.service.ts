@@ -2,9 +2,12 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/core/prisma/prisma.service';
 import { CreatePostInput } from './inputs/create-post.input';
+import { PubSub } from 'graphql-subscriptions';
 
 @Injectable()
 export class PostService {
+    private pubSub = new PubSub();
+
     public constructor(private readonly prismaService: PrismaService) {}
 
     public async createPost(post: CreatePostInput, userId: string) {
@@ -45,23 +48,74 @@ export class PostService {
 
     public async createComment(postId: string, userId: string, text: string) {
         // Добавлен return
-        return await this.prismaService.comment.create({
+        const comment = await this.prismaService.comment.create({
             data: {
                 postId,
                 userId,
                 text
             }
-        })
+        });
+        
+        // Публикуем событие о новом комментарии
+        this.pubSub.publish('commentAdded', { commentAdded: comment });
+        
+        return comment;
     }
 
     public async likePost(postId: string, userId: string) {
         // Добавлен return
-        return await this.prismaService.like.create({
+        const like = await this.prismaService.like.create({
             data: {
                 postId,
                 userId
             }
-        })
+        });
+        
+        // Публикуем событие о новом лайке
+        this.pubSub.publish('likeAdded', { likeAdded: like });
+        
+        return like;
+    }
+
+    public async updateComment(commentId: string, userId: string, text: string) {
+        // Проверяем, что комментарий принадлежит пользователю
+        const comment = await this.prismaService.comment.findFirst({
+            where: { id: commentId, userId }
+        });
+
+        if (!comment) {
+            throw new Error('Comment not found or access denied');
+        }
+
+        const updatedComment = await this.prismaService.comment.update({
+            where: { id: commentId },
+            data: { text }
+        });
+        
+        // Публикуем событие об обновлении комментария
+        this.pubSub.publish('commentUpdated', { commentUpdated: updatedComment });
+        
+        return updatedComment;
+    }
+
+    public async deleteComment(commentId: string, userId: string) {
+        // Проверяем, что комментарий принадлежит пользователю
+        const comment = await this.prismaService.comment.findFirst({
+            where: { id: commentId, userId }
+        });
+
+        if (!comment) {
+            throw new Error('Comment not found or access denied');
+        }
+
+        const deletedComment = await this.prismaService.comment.delete({
+            where: { id: commentId }
+        });
+        
+        // Публикуем событие об удалении комментария
+        this.pubSub.publish('commentDeleted', { commentDeleted: deletedComment });
+        
+        return deletedComment;
     }
 
     public async getRandomPosts(limit: number = 10) {
@@ -250,5 +304,22 @@ export class PostService {
                 }
             }
         })
+    }
+
+    // Методы подписок для real-time обновлений
+    public likeAddedSubscription(postId: string) {
+        return this.pubSub.asyncIterator('likeAdded');
+    }
+
+    public commentAddedSubscription(postId: string) {
+        return this.pubSub.asyncIterator('commentAdded');
+    }
+
+    public commentUpdatedSubscription(postId: string) {
+        return this.pubSub.asyncIterator('commentUpdated');
+    }
+
+    public commentDeletedSubscription(postId: string) {
+        return this.pubSub.asyncIterator('commentDeleted');
     }
 }

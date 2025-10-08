@@ -45,13 +45,16 @@ export function ProfileEditForm({ initialBio = '', initialAvatar = '', onSuccess
   };
 
   return (
-    <div className="card">
-      <h3 className="text-lg font-semibold text-card-foreground mb-4">Редактировать профиль</h3>
+    <div className="card-hi-tech rounded-lg p-6 border border-green-400">
+      <div className="flex items-center mb-6">
+        <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-hi-tech-pulse"></div>
+        <h3 className="text-lg font-bold text-green-400 font-mono tracking-wider">EDIT PROFILE</h3>
+      </div>
       
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="avatar" className="block text-sm font-medium text-card-foreground mb-2">
-            Аватар (URL)
+          <label htmlFor="avatar" className="block text-sm font-medium text-green-400 mb-3 font-mono tracking-wider">
+            AVATAR URL
           </label>
           <input
             id="avatar"
@@ -59,41 +62,41 @@ export function ProfileEditForm({ initialBio = '', initialAvatar = '', onSuccess
             value={avatar}
             onChange={(e) => setAvatar(e.target.value)}
             placeholder="https://example.com/avatar.jpg"
-            className="w-full p-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full input-hi-tech rounded-lg p-4 font-mono focus:outline-none focus:ring-2 focus:ring-green-400"
             disabled={loading}
           />
         </div>
 
         <div>
-          <label htmlFor="bio" className="block text-sm font-medium text-card-foreground mb-2">
-            О себе
+          <label htmlFor="bio" className="block text-sm font-medium text-blue-400 mb-3 font-mono tracking-wider">
+            BIO
           </label>
           <textarea
             id="bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
-            placeholder="Расскажите о себе..."
+            placeholder="TELL US ABOUT YOURSELF..."
             rows={4}
-            className="w-full p-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+            className="w-full input-hi-tech rounded-lg p-4 font-mono focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
             disabled={loading}
           />
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-primary flex-1 disabled:opacity-60 disabled:cursor-not-allowed"
+            className="btn-hi-tech flex-1 disabled:opacity-60 disabled:cursor-not-allowed font-mono"
           >
-            {loading ? 'Сохранение...' : 'Сохранить'}
+            {loading ? 'SAVING...' : 'SAVE CHANGES'}
           </button>
           <button
             type="button"
             onClick={onCancel}
             disabled={loading}
-            className="btn btn-secondary flex-1"
+            className="btn-hi-tech flex-1 border border-red-400 text-red-400 hover:bg-red-400 hover:text-black font-mono"
           >
-            Отмена
+            CANCEL
           </button>
         </div>
       </form>

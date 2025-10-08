@@ -1,6 +1,7 @@
 import type { ApolloDriverConfig } from "@nestjs/apollo";
 import { ConfigService } from "@nestjs/config";
 import { join } from "path";
+import { PubSub } from "graphql-subscriptions";
 
 export function getGraphQLConfig(
     configService: ConfigService
@@ -17,5 +18,10 @@ export function getGraphQLConfig(
         autoSchemaFile: join(process.cwd(), 'src/core/graphql/schema.gql'),
         sortSchema: true,
         context: ({req, res}) => ({req, res}),
+        installSubscriptionHandlers: true,
+        subscriptions: {
+            'graphql-ws': true,
+            'subscriptions-transport-ws': true,
+        },
     }
 }

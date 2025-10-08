@@ -1,30 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafbfc;
-  --foreground: #0f172a;
-  --primary: #6366f1;
-  --primary-foreground: #ffffff;
-  --secondary: #f8fafc;
-  --secondary-foreground: #475569;
-  --accent: #f59e0b;
-  --accent-foreground: #ffffff;
-  --muted: #94a3b8;
-  --border: #e2e8f0;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --success: #10b981;
-  --success-foreground: #ffffff;
-  --danger: #ef4444;
+  /* Hi-Tech Color Palette */
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --primary: #00ff88;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #cccccc;
+  --accent: #00d4ff;
+  --accent-foreground: #000000;
+  --muted: #666666;
+  --border: #333333;
+  --card: #111111;
+  --card-foreground: #ffffff;
+  --success: #00ff88;
+  --success-foreground: #000000;
+  --danger: #ff0040;
   --danger-foreground: #ffffff;
-  --warning: #f59e0b;
-  --warning-foreground: #ffffff;
-  --radius: 0.75rem;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --warning: #ffaa00;
+  --warning-foreground: #000000;
+  --radius: 0.5rem;
+  --shadow-sm: 0 1px 2px 0 rgb(0 255 136 / 0.1);
+  --shadow: 0 1px 3px 0 rgb(0 255 136 / 0.2), 0 1px 2px -1px rgb(0 255 136 / 0.2);
+  --shadow-md: 0 4px 6px -1px rgb(0 255 136 / 0.3), 0 2px 4px -2px rgb(0 255 136 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 255 136 / 0.4), 0 4px 6px -4px rgb(0 255 136 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 255 136 / 0.5), 0 8px 10px -6px rgb(0 255 136 / 0.5);
 }
 
 @theme inline {
@@ -46,29 +47,29 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #fafafa;
-    --primary: #8b5cf6;
-    --primary-foreground: #0a0a0a;
-    --secondary: #1a1a1a;
-    --secondary-foreground: #a3a3a3;
-    --accent: #f59e0b;
-    --accent-foreground: #0a0a0a;
-    --muted: #737373;
-    --border: #262626;
-    --card: #111111;
-    --card-foreground: #fafafa;
-    --success: #22c55e;
-    --success-foreground: #0a0a0a;
-    --danger: #ef4444;
-    --danger-foreground: #fafafa;
-    --warning: #f59e0b;
-    --warning-foreground: #0a0a0a;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
+    --background: #000000;
+    --foreground: #ffffff;
+    --primary: #00ff88;
+    --primary-foreground: #000000;
+    --secondary: #0a0a0a;
+    --secondary-foreground: #ffffff;
+    --accent: #00d4ff;
+    --accent-foreground: #000000;
+    --muted: #555555;
+    --border: #222222;
+    --card: #0a0a0a;
+    --card-foreground: #ffffff;
+    --success: #00ff88;
+    --success-foreground: #000000;
+    --danger: #ff0040;
+    --danger-foreground: #ffffff;
+    --warning: #ffaa00;
+    --warning-foreground: #000000;
+    --shadow-sm: 0 1px 2px 0 rgb(0 255 136 / 0.2);
+    --shadow: 0 1px 3px 0 rgb(0 255 136 / 0.3), 0 1px 2px -1px rgb(0 255 136 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 255 136 / 0.4), 0 2px 4px -2px rgb(0 255 136 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 255 136 / 0.5), 0 4px 6px -4px rgb(0 255 136 / 0.5);
+    --shadow-xl: 0 20px 25px -5px rgb(0 255 136 / 0.6), 0 8px 10px -6px rgb(0 255 136 / 0.6);
   }
 }
 
@@ -737,34 +738,9 @@ body {
   background-clip: text;
 }
 
-/* Premium Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #764ba2, #f093fb);
-}
+/* Premium Scrollbar - Removed duplicate */
 
 /* Hover effects for interactive elements */
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-}
-
 .hover-scale {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -778,5 +754,413 @@ body {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* ===== HI-TECH STYLES ===== */
+
+/* Hi-Tech Grid Background */
+.hi-tech-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Hi-Tech Circuit Pattern */
+.hi-tech-circuit {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300ff88' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+
+/* Hi-Tech Neon Glow */
+.hi-tech-glow {
+  box-shadow: 
+    0 0 5px var(--primary),
+    0 0 10px var(--primary),
+    0 0 15px var(--primary),
+    0 0 20px var(--primary);
+}
+
+.hi-tech-glow-accent {
+  box-shadow: 
+    0 0 5px var(--accent),
+    0 0 10px var(--accent),
+    0 0 15px var(--accent),
+    0 0 20px var(--accent);
+}
+
+/* Hi-Tech Button Styles */
+.btn-hi-tech {
+  background: linear-gradient(45deg, #000000, #1a1a1a);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-hi-tech::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-hi-tech:hover::before {
+  left: 100%;
+}
+
+.btn-hi-tech:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 0 20px var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Hi-Tech Card Styles */
+.card-hi-tech {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hi-tech::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-hi-tech:hover::before {
+  opacity: 1;
+}
+
+.card-hi-tech:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+/* Hi-Tech Input Styles */
+.input-hi-tech {
+  background: #0a0a0a;
+  border: 2px solid var(--border);
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.input-hi-tech:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+  background: #111111;
+}
+
+.input-hi-tech:hover {
+  border-color: var(--primary);
+}
+
+/* Hi-Tech Text Effects */
+.text-hi-tech {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+}
+
+.text-hi-tech-accent {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent);
+}
+
+/* Hi-Tech Animations */
+@keyframes hi-tech-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px var(--primary);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--primary);
+  }
+}
+
+@keyframes hi-tech-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes hi-tech-flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-hi-tech-pulse {
+  animation: hi-tech-pulse 2s ease-in-out infinite;
+}
+
+.animate-hi-tech-scan {
+  animation: hi-tech-scan 2s linear infinite;
+}
+
+.animate-hi-tech-flicker {
+  animation: hi-tech-flicker 0.1s linear infinite;
+}
+
+/* Hi-Tech Loading Spinner */
+.hi-tech-spinner {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--border);
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Hi-Tech Progress Bar */
+.hi-tech-progress {
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+  height: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hi-tech-progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  width: var(--progress, 0%);
+  transition: width 0.3s ease;
+}
+
+/* Hi-Tech Terminal Style */
+.hi-tech-terminal {
+  background: #000000;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
+  position: relative;
+}
+
+.hi-tech-terminal::before {
+  content: '> ';
+  color: var(--primary);
+}
+
+/* Hi-Tech Data Visualization */
+.hi-tech-chart {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.hi-tech-chart::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%),
+    linear-gradient(0deg, transparent 0%, var(--primary) 50%, transparent 100%);
+  opacity: 0.1;
+}
+
+/* Hi-Tech Navigation */
+.nav-hi-tech {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-hi-tech-item {
+  color: var(--foreground);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-hi-tech-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-hi-tech-item:hover::before {
+  width: 100%;
+}
+
+.nav-hi-tech-item:hover {
+  color: var(--primary);
+}
+
+/* Hi-Tech Modal */
+.modal-hi-tech {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.modal-hi-tech-content {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  border: 1px solid var(--primary);
+  position: relative;
+}
+
+.modal-hi-tech-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+/* Hi-Tech Status Indicators */
+.status-online {
+  color: var(--success);
+  text-shadow: 0 0 5px var(--success);
+}
+
+.status-offline {
+  color: var(--danger);
+  text-shadow: 0 0 5px var(--danger);
+}
+
+.status-warning {
+  color: var(--warning);
+  text-shadow: 0 0 5px var(--warning);
+}
+
+/* Hi-Tech Data Tables */
+.table-hi-tech {
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+}
+
+.table-hi-tech th {
+  background: #1a1a1a;
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+
+.table-hi-tech td {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease;
+}
+
+.table-hi-tech tr:hover td {
+  background: rgba(0, 255, 136, 0.1);
+}
+
+/* Hi-Tech Form Elements */
+.form-hi-tech {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.form-hi-tech label {
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hi-Tech Code Blocks */
+.code-hi-tech {
+  background: #000000;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
+  position: relative;
+}
+
+.code-hi-tech::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+}
+
+/* Hi-Tech Scrollbar - Updated */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Hi-Tech Selection */
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Hi-Tech Focus */
+*:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Hi-Tech Responsive Design */
+@media (max-width: 768px) {
+  .hi-tech-grid {
+    background-size: 15px 15px;
+  }
+  
+  .btn-hi-tech {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .card-hi-tech {
+    padding: 1rem;
+  }
+  
+  .form-hi-tech {
+    padding: 1rem;
+  }
 }
